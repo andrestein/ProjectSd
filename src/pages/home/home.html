@@ -1,15 +1,18 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Inicio</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let nota of notas">
-      {{nota.title}}
-    </button>
-  </ion-list>
+    <ion-item>
+        <ion-label fixed>identificacion</ion-label>
+        <ion-input type="text" [(ngModel)]="dato.id"></ion-input>
+    </ion-item>
+  <ion-item>
+      <ion-label fixed>descripcion</ion-label>
+      <ion-input type="text" [(ngModel)]="dato.text"></ion-input>
+  </ion-item>
   <div padding>
     <button ion-button block (click)="crearData()">Prueba</button>
   </div>

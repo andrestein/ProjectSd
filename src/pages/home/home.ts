@@ -8,11 +8,16 @@ import { Data } from '../../services/Data';
 })
 export class HomePage {
   notas = [];
+  dato ={id:"",text:""};
   constructor(public navCtrl: NavController, public data: Data) {
     this.notas = data.getNotes();
   }
   public crearData(){
-    var dato = {id:1,title:'prueba'};
-    this.data.createDato(dato);
+    this.data.createDato(this.dato);
+    this.clearData();
+  }
+  private clearData(){
+    this.dato.id = "";
+    this.dato.text = "";
   }
 }

@@ -13,6 +13,6 @@ export class Data{
         return this.notes;
     }
     public createDato(nota){
-        this.afDB.database.ref('notes/'+nota.id).set(nota);
+        this.afDB.database.ref('data/'+nota.id).set(nota);
     }
 }
