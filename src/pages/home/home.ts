@@ -8,7 +8,7 @@ import { Data } from '../../services/Data';
 })
 export class HomePage {
   notas = [];
-  dato ={id:"",text:""};
+  dato ={air:"",earth:"",light:"",tem:""};
   constructor(public navCtrl: NavController, public data: Data) {
     this.notas = data.getNotes();
   }
@@ -17,7 +17,9 @@ export class HomePage {
     this.clearData();
   }
   private clearData(){
-    this.dato.id = "";
-    this.dato.text = "";
+    this.dato.air  = "";
+    this.dato.earth = "";
+    this.dato.light = "";
+    this.dato.tem = "";
   }
 }

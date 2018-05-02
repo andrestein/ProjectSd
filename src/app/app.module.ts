@@ -18,8 +18,9 @@ export const firebaseConfig = {
   apiKey: "AIzaSyA0jGPElcztD_heT3lQt5gT_C5Xr6_51-c",
   authDomain: "projectsd-23012.firebaseapp.com",
   databaseURL: "https://projectsd-23012.firebaseio.com",
+  projectId: "projectsd-23012",
   storageBucket: "projectsd-23012.appspot.com",
-  messagingSenderId: '179249659830'
+  messagingSenderId: "179249659830"
 };
 
 @NgModule({

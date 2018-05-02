@@ -6,12 +6,20 @@
 
 <ion-content>
     <ion-item>
-        <ion-label fixed>identificacion</ion-label>
-        <ion-input type="text" [(ngModel)]="dato.id"></ion-input>
+        <ion-label floating>Humedad Aire</ion-label>
+        <ion-input type="text" [(ngModel)]="dato.air"></ion-input>
     </ion-item>
   <ion-item>
-      <ion-label fixed>descripcion</ion-label>
-      <ion-input type="text" [(ngModel)]="dato.text"></ion-input>
+      <ion-label floating>Humedad Tierra</ion-label>
+      <ion-input type="text" [(ngModel)]="dato.earth"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating>Luz</ion-label>
+      <ion-input type="text" [(ngModel)]="dato.light"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating>Temperatura</ion-label>
+      <ion-input type="text" [(ngModel)]="dato.tem"></ion-input>
   </ion-item>
   <div padding>
     <button ion-button block (click)="crearData()">Prueba</button>
