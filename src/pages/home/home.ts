@@ -7,7 +7,7 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database/databa
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class Inicio {
   dates ={air:"",earth:"",light:"",tem:""};
   constructor(public navCtrl: NavController, public afdb: AngularFireDatabase) {}
   public crearData(){
@@ -21,7 +21,7 @@ export class HomePage {
     this.dates.tem = "";
   }
 }
-
+/*
 @Component({
   selector: 'page-view',
   templateUrl: 'view.html'
@@ -33,6 +33,5 @@ export class View {
      this.notes = afdb.list('/plantapp/state').valueChanges();
      this.variables = afdb.list('/plantapp/variables').valueChanges();
   }
-
-}
+}*/
 

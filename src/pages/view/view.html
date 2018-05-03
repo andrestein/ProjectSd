@@ -1,11 +1,33 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Datos</ion-title>
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >Datos</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <div padding>
-    <button ion-button block>Obtener</button>
-  </div>
+<ion-grid>
+  <ion-row> 
+    <ion-col>
+     	<ion-list>
+ 	 		<ion-list-header>Variable
+ 	 		</ion-list-header>
+  			<ion-item *ngFor="let note of variables | async">
+    			{{note}}
+  			</ion-item>
+		</ion-list>
+    </ion-col>
+    <ion-col>
+  		<ion-list>
+ 	 		<ion-list-header>Valor
+ 	 		</ion-list-header>
+  			<ion-item *ngFor="let note of notes | async">
+    			{{note}}
+  			</ion-item>
+		</ion-list>
+    </ion-col>
+  </ion-row>
+ </ion-grid>
 </ion-content>

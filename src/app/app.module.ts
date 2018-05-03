@@ -3,9 +3,9 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { Inicio } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { View} from '../pages/home/home';
+import { View} from '../pages/view/view';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,7 +27,7 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
+    Inicio,
     ListPage, 
     View
   ],
@@ -41,7 +41,7 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
+    Inicio,
     ListPage,
     View
   ],
