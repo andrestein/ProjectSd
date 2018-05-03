@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Datos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+  	<ion-list-header>
+  		Datos
+  	</ion-list-header>
+  	<ion-item [(ngModel)]="items">Temperatura Aire
+  	</ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button block (click)="getDatos()">Obtener</button>
+  </div>
+</ion-content>
