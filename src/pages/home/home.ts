@@ -11,11 +11,11 @@ import {AngularFireDatabase} from 'angularfire2/database/database'
 export class HomePage {
   notes = [];
   dates ={air:"",earth:"",light:"",tem:""};
-  constructor(public navCtrl: NavController, public data: Data, public afbs: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public data: Data, public afdb: AngularFireDatabase) {
     this.notes = data.getNotes();
   }
   public crearData(){
-    this.afbs.database.ref('plantapp').child('state').set(this.dates);
+    this.afdb.database.ref('plantapp').child('state').set(this.dates);
     this.clearData();
   }
   private clearData(){
@@ -25,3 +25,17 @@ export class HomePage {
     this.dates.tem = "";
   }
 }
+
+@Component({
+  selector: 'page-view',
+  templateUrl: 'view.html'
+})
+export class View {
+  constructor(public db: AngularFireDatabase) {}
+
+  public getDatos(){
+    var items = this.db.list('plantaap/').valueChanges();
+    document.getElementById("ht").innerHTML= String(items[0]);
+  }
+}
+
