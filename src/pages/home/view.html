@@ -5,14 +5,26 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-  	<ion-list-header>
-  		Datos
-  	</ion-list-header>
-  	<ion-item [(ngModel)]="items">Temperatura Aire
-  	</ion-item>
-  </ion-list>
-  <div padding>
-    <button ion-button block (click)="getDatos()">Obtener</button>
-  </div>
+<ion-grid>
+  <ion-row> 
+    <ion-col>
+     	<ion-list>
+ 	 		<ion-list-header>Variable
+ 	 		</ion-list-header>
+  			<ion-item *ngFor="let note of variables | async">
+    			{{note}}
+  			</ion-item>
+		</ion-list>
+    </ion-col>
+    <ion-col>
+  		<ion-list>
+ 	 		<ion-list-header>Valor
+ 	 		</ion-list-header>
+  			<ion-item *ngFor="let note of notes | async">
+    			{{note}}
+  			</ion-item>
+		</ion-list>
+    </ion-col>
+  </ion-row>
+ </ion-grid>
 </ion-content>

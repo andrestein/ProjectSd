@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Data } from '../../services/Data';
-import {AngularFireDatabase} from 'angularfire2/database/database'
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database/database'
 
 
 @Component({
@@ -9,11 +8,8 @@ import {AngularFireDatabase} from 'angularfire2/database/database'
   templateUrl: 'home.html'
 })
 export class HomePage {
-  notes = [];
   dates ={air:"",earth:"",light:"",tem:""};
-  constructor(public navCtrl: NavController, public data: Data, public afdb: AngularFireDatabase) {
-    this.notes = data.getNotes();
-  }
+  constructor(public navCtrl: NavController, public afdb: AngularFireDatabase) {}
   public crearData(){
     this.afdb.database.ref('plantapp').child('state').set(this.dates);
     this.clearData();
@@ -31,11 +27,12 @@ export class HomePage {
   templateUrl: 'view.html'
 })
 export class View {
-  constructor(public db: AngularFireDatabase) {}
-
-  public getDatos(){
-    var items = this.db.list('plantaap/').valueChanges();
-    document.getElementById("ht").innerHTML= String(items[0]);
+  notes:AngularFireList<any>;
+  variables:AngularFireList<any>;
+  constructor(public afdb: AngularFireDatabase) {
+     this.notes = afdb.list('/plantapp/state').valueChanges();
+     this.variables = afdb.list('/plantapp/variables').valueChanges();
   }
+
 }
 
