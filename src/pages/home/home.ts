@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {AngularFireDatabase, AngularFireList} from 'angularfire2/database/database'
+import {AngularFireDatabase} from 'angularfire2/database/database'
 
 
 @Component({
@@ -9,7 +9,14 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database/databa
 })
 export class Inicio {
   dates ={air:"",earth:"",light:"",tem:""};
-  constructor(public navCtrl: NavController, public afdb: AngularFireDatabase) {}
+  icons:Array<{name:String,icon:String}>;
+  system={Sl:false, Sr:false, Sa:false};
+  constructor(public navCtrl: NavController, public afdb: AngularFireDatabase) {
+    this.icons=[{name:'Sistema Lumínico', icon:'bulb'},
+                {name:'Sistema de Riego', icon:'color-fill'},
+                {name:'Sistema de Acceso', icon:'key'}];
+
+  }
   public crearData(){
     this.afdb.database.ref('plantapp').child('state').set(this.dates);
     this.clearData();
@@ -20,18 +27,17 @@ export class Inicio {
     this.dates.light = "";
     this.dates.tem = "";
   }
-}
-/*
-@Component({
-  selector: 'page-view',
-  templateUrl: 'view.html'
-})
-export class View {
-  notes:AngularFireList<any>;
-  variables:AngularFireList<any>;
-  constructor(public afdb: AngularFireDatabase) {
-     this.notes = afdb.list('/plantapp/state').valueChanges();
-     this.variables = afdb.list('/plantapp/variables').valueChanges();
+
+  public getSl(){
+    this.afdb.database.ref('plantapp').child('system').child('sl').set(this.system.Sl);
   }
-}*/
+
+  public getSr(){
+    this.afdb.database.ref('plantapp').child('system').child('sr').set(this.system.Sr);
+  }
+
+  public getSa(){
+    this.afdb.database.ref('plantapp').child('system').child('sa').set(this.system.Sa);
+  }
+}
 
