@@ -14,6 +14,7 @@ import { Data } from '../services/Data';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { Push } from '@ionic-native/push';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA0jGPElcztD_heT3lQt5gT_C5Xr6_51-c",
@@ -48,6 +49,7 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    Push,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Data
   ]

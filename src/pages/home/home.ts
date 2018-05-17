@@ -21,6 +21,7 @@ export class Inicio {
   public crearData(){    
     if(this.validarCampoNulo()){
       console.log(Number.isNaN(+this.dates.air));
+      console.log(+this.dates.air);
       if(this.validarNumero()){
         this.afdb.database.ref('plantapp').child('state').set(this.dates);
         this.clearData();
@@ -51,11 +52,11 @@ export class Inicio {
   }
 
   private validarNumero():boolean{
-    if(Number.isNaN(+this.dates.air) || Number.isNaN(+this.dates.air)
-    || Number.isNaN(+this.dates.air) || Number.isNaN(+this.dates.air)){
-      return true;
-    }else{
+    if(Number.isNaN(+this.dates.air) || Number.isNaN(+this.dates.earth)
+    || Number.isNaN(+this.dates.light) || Number.isNaN(+this.dates.tem)){
       return false;
+    }else{
+      return true;
     }
   }
 
