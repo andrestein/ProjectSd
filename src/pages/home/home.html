@@ -1,33 +1,28 @@
 <ion-header>
   <ion-navbar color="primary">
-      <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title >Control</ion-title>
+    <ion-title >Plantaap</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <ion-item>
-        <ion-label floating>Humedad Aire</ion-label>
-        <ion-input type="text" [(ngModel)]="dates.air"></ion-input>
-    </ion-item>
-  <ion-item>
-      <ion-label floating>Humedad Tierra</ion-label>
-      <ion-input type="text" [(ngModel)]="dates.earth"></ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-label floating>Luz</ion-label>
-      <ion-input type="text" [(ngModel)]="dates.light"></ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-label floating>Temperatura</ion-label>
-      <ion-input type="text" [(ngModel)]="dates.tem"></ion-input>
-  </ion-item>
-  <div padding>
-    <button ion-button block (click)="crearData()">Enviar</button>
-  </div>
-
+    <ion-grid>
+        <ion-row> 
+          <ion-col>
+              <ion-list-header>Variable
+              </ion-list-header>
+            <ion-item *ngFor="let note of dataIcons">
+               <ion-icon [name]=note.icon></ion-icon> {{note.name}}
+            </ion-item>
+          </ion-col>
+          <ion-col>
+              <ion-list-header>Valor
+              </ion-list-header>
+              <ion-item *ngFor="let note of notes | async">
+                {{note}}
+              </ion-item>
+          </ion-col>
+        </ion-row>
+       </ion-grid>
   <ion-col>
       <ion-row><ion-list-header>Actuadores</ion-list-header>
         <ion-col>
@@ -37,13 +32,16 @@
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-toggle [(ngModel)]="system.Sl" (click)="getSl()"></ion-toggle>
+            <ion-toggle [(ngModel)]="systemaL" (ngModelChange)="getSl()"></ion-toggle>
           </ion-item>
           <ion-item>
-            <ion-toggle [(ngModel)]="system.Sr" (click)="getSr()"></ion-toggle>
+            <ion-toggle [(ngModel)]="systemaR" (ngModelChange)="getSr()"></ion-toggle>
           </ion-item>
           <ion-item>
-            <ion-toggle [(ngModel)]="system.Sa" (click)="getSa()"></ion-toggle>
+            <ion-toggle [(ngModel)]="systemaA" (ngModelChange)="getSa()"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-toggle [(ngModel)]="state" (ngModelChange)="getState()"></ion-toggle>
           </ion-item>
         </ion-col>
       </ion-row>
